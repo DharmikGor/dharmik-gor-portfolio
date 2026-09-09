@@ -54,10 +54,11 @@ export default function ContactForm() {
 
     setStatus('submitting');
     try {
+      const subject = `New inquiry from ${values.name} - ${values.projectType}`;
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...values }),
+        body: encode({ 'form-name': 'contact', subject, ...values }),
       });
       if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
       setStatus('success');
@@ -91,6 +92,12 @@ export default function ContactForm() {
     >
       {/* Required for Netlify's build-time form detection */}
       <input type="hidden" name="form-name" value="contact" />
+      <input
+        type="hidden"
+        name="subject"
+        data-remove-prefix="true"
+        value={`New inquiry from ${values.name} - ${values.projectType}`}
+      />
       <p className="hidden">
         <label>
           Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} autoComplete="off" />
