@@ -9,7 +9,6 @@ import Highlights from './components/Highlights';
 import Navbar from './components/Navbar';
 import Process from './components/Process';
 import Projects from './components/Projects';
-import ResumeCTA from './components/ResumeCTA';
 import Services from './components/Services';
 import ShopifyExpertise from './components/ShopifyExpertise';
 import Skills from './components/Skills';
@@ -42,7 +41,6 @@ export default function App() {
         <Testimonials />
         <Certifications />
         <Blog />
-        <ResumeCTA />
         <Contact />
       </main>
 
