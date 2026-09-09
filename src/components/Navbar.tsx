@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import { navigation, profile } from '../data/profile';
 import { useActiveSection } from '../hooks/useActiveSection';
-import { useScrollProgress } from '../hooks/useScrollProgress';
 
 const sectionIds = navigation.map((item) => item.href.replace('#', ''));
 
@@ -10,7 +9,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const activeId = useActiveSection(sectionIds);
-  const progress = useScrollProgress();
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -40,9 +39,9 @@ export default function Navbar() {
       }`}
     >
       <div className="h-[2px] bg-stone-200/60">
-        <div
-          className="h-full bg-accent-500 transition-[width] duration-150 ease-out"
-          style={{ width: `${progress * 100}%` }}
+        <motion.div
+          className="h-full origin-left bg-accent-500"
+          style={{ scaleX: scrollYProgress }}
           aria-hidden="true"
         />
       </div>

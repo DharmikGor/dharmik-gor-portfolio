@@ -44,9 +44,9 @@ export const socialLinks = {
 export const hero = {
   eyebrow: profile.name,
   title: profile.title,
-  headline: 'Building scalable e-commerce experiences with Shopify, Shopify Plus & WordPress.',
+  headline: 'Helping brands & agencies build Shopify stores that sell.',
   supporting:
-    '5+ years of experience helping brands, merchants and agencies build, customize and scale high-performing e-commerce websites.',
+    "5+ years partnering with brands, merchants and agencies worldwide to build, customize and scale e-commerce websites — with clear communication and dependable delivery on every project.",
   ctaPrimary: { label: "Let's Work Together", href: '#contact' },
   ctaSecondary: { label: 'View My Work', href: '#work' },
   ctaTertiary: { label: 'Download Resume', href: '/resume.pdf' },
@@ -62,7 +62,7 @@ export const about = {
     'My core expertise is Shopify development, including Shopify 2.0, Liquid, custom themes, metafields, third-party integrations, Shopify Plus, B2B solutions, custom functionality and performance optimization.',
     'Alongside Shopify, I work with WordPress, PHP, React, JavaScript, HTML, CSS, jQuery, AJAX and Git.',
     "I've worked with agencies, merchants and distributed teams, helping turn designs, business requirements and technical challenges into reliable production-ready websites.",
-    "I'm particularly interested in working with international Shopify agencies and businesses that need a reliable developer for ongoing or project-based work.",
+    "If you're an agency or business looking for a Shopify developer who communicates clearly, meets deadlines and treats your store like their own — whether it's a one-off project or ongoing support — I'd love to hear about it.",
   ],
   stats: [
     { value: '5+ Years', label: 'Experience' },
@@ -90,8 +90,9 @@ export const resumeCTA = {
 };
 
 export const contactSection = {
-  headline: "Let's build something great.",
-  supporting: "Have a Shopify project, e-commerce challenge or development requirement? Let's talk.",
+  headline: "Let's build something great, together.",
+  supporting:
+    "Have a Shopify project, a tricky integration or an e-commerce challenge that needs a reliable pair of hands? Tell me about it — I typically reply within 24 hours.",
 };
 
 export const navigation = [
