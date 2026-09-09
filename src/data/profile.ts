@@ -70,7 +70,6 @@ export const about = {
     { value: 'Shopify Plus', label: 'Advanced Commerce' },
     { value: 'Remote', label: 'International Collaboration' },
   ] as StatCard[],
-  portraitPlaceholderNote: 'PROFESSIONAL PORTRAIT — REPLACE WITH FINAL PHOTO',
 };
 
 export const highlights: StatCard[] = [

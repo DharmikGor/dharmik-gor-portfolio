@@ -91,11 +91,10 @@ matches the current theme and scales crisply at any size) rather than loading an
 
 ## Replacing the Profile Photo
 
-1. Add your photo to `public/images/profile/profile.jpg` (recommended: studio-style headshot,
-   dark charcoal/neutral background, smart casual or blazer, minimal background).
-2. Open `src/components/About.tsx` and replace the placeholder portrait block (the dark panel with
-   the "DG" monogram) with an `<img src="/images/profile/profile.jpg" alt="Dharmik Gor" />` tag,
-   keeping the existing `className` for consistent sizing/rounding.
+The real headshot is already wired in at `public/images/profile/profile.webp`, rendered by an
+`<img>` tag in `src/components/About.tsx`. To swap it for a new photo later, overwrite that file
+(keeping the `profile.webp` filename, or updating the `src` in `About.tsx` if you use a different
+name/format).
 
 ## Replacing Project Images
 
