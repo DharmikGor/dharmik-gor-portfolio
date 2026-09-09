@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans;
+    font-feature-settings: 'ss01' on, 'cv01' on;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+
+  ::selection {
+    @apply bg-accent-300 text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.500');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+
+  .eyebrow {
+    @apply text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition-all duration-300 ease-premium hover:bg-accent-600 hover:-translate-y-0.5 focus-visible:outline-offset-4;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-stone-300 bg-transparent px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-300 ease-premium hover:border-ink hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline decoration-accent-400 decoration-2 underline-offset-4 transition-colors duration-300 hover:text-accent-600;
+  }
+
+  .tag-chip {
+    @apply inline-flex items-center rounded-full border border-stone-300 bg-stone-50 px-4 py-1.5 text-xs font-semibold tracking-wide text-stone-700 transition-colors duration-300 hover:border-accent-400 hover:text-accent-600;
+  }
+
+  .card-premium {
+    @apply rounded-2xl border border-stone-200 bg-white/60 p-8 shadow-[0_1px_2px_rgba(20,19,15,0.04)] transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_20px_40px_-16px_rgba(20,19,15,0.12)];
+  }
+}
