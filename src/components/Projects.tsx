@@ -8,8 +8,8 @@ export default function Projects() {
       <div className="container-content">
         <SectionHeading
           eyebrow="Selected Work"
-          title="Recent Shopify & WordPress builds."
-          supporting="Case studies below are demo placeholders and will be replaced with real client work as projects are confirmed for publication."
+          title="Recent Shopify builds."
+          supporting="Shopify development delivered through an agency development partnership — public case study credit sits with the partner agency."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -19,7 +19,7 @@ export default function Projects() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
                   <img
                     src={project.image}
-                    alt={`${project.title} — placeholder preview`}
+                    alt={`${project.title} case study cover`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
                   />
@@ -50,21 +50,6 @@ export default function Projects() {
                         <span className="text-stone-300 last:hidden"> · </span>
                       </span>
                     ))}
-                  </div>
-
-                  <div className="mt-6 flex flex-wrap items-center gap-5">
-                    <span
-                      className="text-sm font-semibold text-stone-400 cursor-not-allowed"
-                      title="Project URL not yet available"
-                    >
-                      View Project
-                    </span>
-                    <span
-                      className="text-sm font-semibold text-stone-400 cursor-not-allowed"
-                      title="Case study not yet published"
-                    >
-                      Case Study
-                    </span>
                   </div>
                 </div>
               </article>
