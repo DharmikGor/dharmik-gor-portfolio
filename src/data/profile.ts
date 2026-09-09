@@ -49,7 +49,6 @@ export const hero = {
     "5+ years partnering with brands, merchants and agencies worldwide to build, customize and scale e-commerce websites — with clear communication and dependable delivery on every project.",
   ctaPrimary: { label: "Let's Work Together", href: '#contact' },
   ctaSecondary: { label: 'View My Work', href: '#work' },
-  ctaTertiary: { label: 'Download Resume', href: '/resume.pdf' },
   availability: profile.availability,
   techLabels: ['SHOPIFY', 'SHOPIFY PLUS', 'LIQUID', 'WORDPRESS', 'REACT', 'E-COMMERCE'] as string[],
 };
@@ -81,14 +80,6 @@ export const highlights: StatCard[] = [
   { value: 'Complex Builds', label: 'Custom Functionality' },
 ];
 
-export const resumeCTA = {
-  headline: 'Want to know more about my experience?',
-  supporting:
-    'Download my resume for a detailed overview of my experience, technical skills and professional background.',
-  buttonLabel: 'Download Resume',
-  href: '/resume.pdf',
-};
-
 export const contactSection = {
   headline: "Let's build something great, together.",
   supporting:
@@ -99,8 +90,8 @@ export const navigation = [
   { label: 'About', href: '#about' },
   { label: 'Story', href: '#story' },
   { label: 'Expertise', href: '#expertise' },
-  { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
   { label: 'Insights', href: '#insights' },
   { label: 'Contact', href: '#contact' },
 ];

@@ -83,9 +83,6 @@ export default function Hero() {
           <a href={hero.ctaSecondary.href} className="btn-secondary">
             {hero.ctaSecondary.label}
           </a>
-          <a href={hero.ctaTertiary.href} className="btn-ghost" download>
-            {hero.ctaTertiary.label}
-          </a>
         </motion.div>
 
         <motion.div
