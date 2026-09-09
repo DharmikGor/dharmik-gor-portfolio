@@ -54,11 +54,12 @@ export default function ContactForm() {
 
     setStatus('submitting');
     try {
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', ...values }),
       });
+      if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
       setStatus('success');
       setValues({ name: '', email: '', company: '', projectType: projectTypes[0], message: '' });
     } catch {
