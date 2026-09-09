@@ -72,6 +72,23 @@ React + Netlify pattern:
 After deploying, form submissions appear under **Site settings → Forms** in the Netlify dashboard.
 No backend server is required.
 
+## Logo & Brand Assets
+
+A "DG" monogram logo lives in `public/images/icons/`:
+
+- `favicon.svg` — vector mark used for the browser tab icon (dark badge, paper letters, accent dot)
+- `favicon-16.png` / `favicon-32.png` / `favicon-48.png` / `favicon-192.png` / `favicon-512.png` —
+  raster favicon sizes, already wired up in `index.html`
+- `apple-touch-icon.png` (180×180) — iOS home-screen icon, already linked in `index.html`
+- `logo-mark-dark.png` / `logo-mark-light.png` — standalone 1024×1024 square mark in both color
+  ways (dark badge for light backgrounds, light badge for dark backgrounds)
+- `logo-horizontal-dark.png` / `logo-horizontal-light.png` — full lockup (mark + "Dharmik Gor" +
+  title) for use outside the site — LinkedIn banner, resume header, email signature, business card
+
+The in-site navbar/footer badge is coded directly in `Navbar.tsx` / `Footer.tsx` (so it always
+matches the current theme and scales crisply at any size) rather than loading an image — update the
+"DG" mark there if the monogram ever changes.
+
 ## Replacing the Profile Photo
 
 1. Add your photo to `public/images/profile/profile.jpg` (recommended: studio-style headshot,
