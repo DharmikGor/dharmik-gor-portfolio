@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+  <rect width="1280" height="800" fill="#1E1D19"/>
+  <defs>
+    <pattern id="grid-lira" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#2E2B25" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="800" fill="url(#grid-lira)"/>
+
+  <g stroke="#C87D42" stroke-width="3" fill="none" stroke-linecap="round" transform="translate(1015,150)">
+    <path d="M 0 -65 C 45 -40 45 40 0 65 C -45 40 -45 -40 0 -65 Z"/>
+    <line x1="0" y1="-45" x2="0" y2="45"/>
+  </g>
+
+  <text x="96" y="580" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#D89968">CASE STUDY &#183; SHOPIFY</text>
+  <text x="92" y="668" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="800" fill="#F7F5F1">Lira Clinical</text>
+  <text x="96" y="716" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#A79D87">D2C + B2B storefront with ERP &amp; CRO integrations</text>
+
+  <rect x="0" y="0" width="1280" height="800" fill="none" stroke="#2E2B25" stroke-width="2"/>
+</svg>

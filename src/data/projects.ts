@@ -1,6 +1,8 @@
-// Placeholder / demo project data. Replace with real client work once
-// available. Each project supports an image, category, description,
-// technologies, and optional view / case-study / external links.
+// Real client work delivered via The CodeWhiz Solution's white-label
+// development partnership with Arctic Grey, a Shopify Plus agency.
+// Arctic Grey holds the public client relationship and case study
+// credit; these entries describe the Shopify development work done
+// on each store.
 
 export interface Project {
   id: string;
@@ -18,69 +20,47 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'luxury-fashion-store',
+    id: 'iceman',
     number: '01',
-    title: 'Luxury Fashion Store',
-    category: 'Shopify Plus',
+    title: 'Iceman',
+    category: 'Shopify',
     description:
-      'Custom Shopify Plus storefront focused on premium product presentation, performance and conversion.',
-    technologies: ['Shopify Plus', 'Liquid', 'JavaScript', 'Metafields'],
-    image: '/images/projects/project-01.jpg',
-    isPlaceholder: true,
+      'Redesigned the storefront for this Atlanta/Nashville ice-and-snow delivery service, with real-time ordering and last-mile delivery logistics.',
+    technologies: ['Shopify', 'Shopify Bundles', 'Onfleet', 'Google Calendar'],
+    image: '/images/projects/case-study-iceman.svg',
+    isPlaceholder: false,
   },
   {
-    id: 'b2b-ecommerce-platform',
+    id: 'wipstitch',
     number: '02',
-    title: 'B2B E-commerce Platform',
+    title: 'Wipstitch',
+    category: 'Shopify',
+    description:
+      'Complete store redesign with a mobile-first theme, optimized checkout flow and upsell functionality.',
+    technologies: ['Shopify', 'Shopify Apps', 'Liquid', 'JavaScript'],
+    image: '/images/projects/case-study-wipstitch.svg',
+    isPlaceholder: false,
+  },
+  {
+    id: 'lira-clinical',
+    number: '03',
+    title: 'Lira Clinical',
     category: 'Shopify B2B',
     description:
-      'Custom B2B storefront featuring customer-specific pricing, product organization and business-focused purchasing workflows.',
-    technologies: ['Shopify', 'B2B', 'Liquid', 'Shopify Flow'],
-    image: '/images/projects/project-02.jpg',
-    isPlaceholder: true,
+      'Mobile-first D2C and international B2B store with enhanced account structures, NetSuite ERP integration and CRO tooling.',
+    technologies: ['Shopify', 'NetSuite', 'Recharge', 'Okendo', 'Rebuy', 'Shopify Flow', 'Klaviyo'],
+    image: '/images/projects/case-study-lira-clinical.svg',
+    isPlaceholder: false,
   },
   {
-    id: 'high-volume-product-store',
-    number: '03',
-    title: 'High-Volume Product Store',
-    category: 'Shopify',
-    description:
-      'Optimized Shopify storefront designed to handle large product and variant catalogs with a smooth customer experience.',
-    technologies: ['Shopify', 'JavaScript', 'JSON', 'Liquid'],
-    image: '/images/projects/project-03.jpg',
-    isPlaceholder: true,
-  },
-  {
-    id: 'wordpress-business-website',
+    id: 'dazzle-dry',
     number: '04',
-    title: 'WordPress Business Website',
-    category: 'WordPress',
+    title: 'Dazzle Dry',
+    category: 'Shopify Plus',
     description:
-      "Responsive business website built with WordPress and customized to match the client's branding and content requirements.",
-    technologies: ['WordPress', 'PHP', 'HTML', 'CSS'],
-    image: '/images/projects/project-04.jpg',
-    isPlaceholder: true,
-  },
-  {
-    id: 'custom-ecommerce-experience',
-    number: '05',
-    title: 'Custom E-commerce Experience',
-    category: 'Shopify',
-    description:
-      'Custom e-commerce experience combining third-party integrations, custom functionality and responsive UI.',
-    technologies: ['Shopify', 'APIs', 'JavaScript', 'Liquid'],
-    image: '/images/projects/project-05.jpg',
-    isPlaceholder: true,
-  },
-  {
-    id: 'agency-development-support',
-    number: '06',
-    title: 'Agency Development Support',
-    category: 'Shopify / WordPress',
-    description:
-      'Development partnership supporting an international agency with ongoing e-commerce implementation and maintenance.',
-    technologies: ['Shopify', 'WordPress', 'React', 'PHP'],
-    image: '/images/projects/project-06.jpg',
-    isPlaceholder: true,
+      'Redesigned and optimized D2C and B2B storefronts on Shopify Plus with strategic upsells and product bundles.',
+    technologies: ['Shopify Plus', 'Yotpo', 'Recharge', 'Klaviyo', 'Rebuy', 'Matrixify'],
+    image: '/images/projects/case-study-dazzle-dry.svg',
+    isPlaceholder: false,
   },
 ];
