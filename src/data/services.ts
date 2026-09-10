@@ -46,4 +46,3 @@ export interface Certification {
 
 export const certifications: Certification[] = [];
 export const certificationsPlaceholder = 'Certification information coming soon.';
-export const testimonialsPlaceholder = 'Client testimonials will be added here.';
