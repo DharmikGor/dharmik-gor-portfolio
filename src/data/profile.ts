@@ -88,7 +88,6 @@ export const contactSection = {
 
 export const navigation = [
   { label: 'About', href: '#about' },
-  { label: 'Story', href: '#story' },
   { label: 'Expertise', href: '#expertise' },
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },

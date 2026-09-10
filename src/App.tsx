@@ -13,7 +13,6 @@ import Services from './components/Services';
 import ShopifyExpertise from './components/ShopifyExpertise';
 import Skills from './components/Skills';
 import Testimonials from './components/Testimonials';
-import Timeline from './components/Timeline';
 
 export default function App() {
   return (
@@ -30,7 +29,6 @@ export default function App() {
       <main id="main-content">
         <Hero />
         <About />
-        <Timeline />
         <Skills />
         <ShopifyExpertise />
         <Services />
