@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import { navigation, profile } from '../data/profile';
 import { useActiveSection } from '../hooks/useActiveSection';
+import Logo from './Logo';
 
 const sectionIds = navigation.map((item) => item.href.replace('#', ''));
 
@@ -52,9 +53,7 @@ export default function Navbar() {
           onClick={handleNavClick('#top')}
           className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-ink"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-paper text-sm font-display font-bold">
-            {profile.initials}
-          </span>
+          <Logo />
           <span className="hidden sm:inline">{profile.name}</span>
         </a>
 
