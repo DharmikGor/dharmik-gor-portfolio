@@ -25,7 +25,6 @@ export default function Testimonials() {
                   <div>
                     <p className="font-display text-sm font-semibold text-ink">{testimonial.name}</p>
                     <p className="text-xs text-stone-500">{testimonial.title}</p>
-                    <p className="mt-0.5 text-xs text-stone-400">{testimonial.context}</p>
                   </div>
                 </figcaption>
               </figure>
