@@ -43,6 +43,19 @@ export default function Projects() {
                     {project.description}
                   </p>
 
+                  {project.results && project.results.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.results.map((result) => (
+                        <span
+                          key={result}
+                          className="inline-flex items-center rounded-full border border-accent-200 bg-accent-50 px-3 py-1 text-xs font-semibold text-accent-700"
+                        >
+                          {result}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span key={tech} className="text-xs font-medium text-stone-500">
