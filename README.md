@@ -85,9 +85,9 @@ A "DG" monogram logo lives in `public/images/icons/`:
 - `logo-horizontal-dark.png` / `logo-horizontal-light.png` — full lockup (mark + "Dharmik Gor" +
   title) for use outside the site — LinkedIn banner, resume header, email signature, business card
 
-The in-site navbar/footer badge is coded directly in `Navbar.tsx` / `Footer.tsx` (so it always
-matches the current theme and scales crisply at any size) rather than loading an image — update the
-"DG" mark there if the monogram ever changes.
+The in-site navbar/footer badge is a shared `Logo.tsx` component (an inline SVG, so it scales
+crisply at any size) rather than a loaded image — `Navbar.tsx` and `Footer.tsx` each render it with
+colors matching their background. Update `Logo.tsx` if the monogram ever changes.
 
 ## Replacing the Profile Photo
 

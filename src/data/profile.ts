@@ -9,7 +9,6 @@ export interface StatCard {
 
 export const profile = {
   name: 'Dharmik Gor',
-  initials: 'DG',
   title: 'Senior Shopify & WordPress Developer',
   specialization: 'Shopify Developer · Shopify Plus · E-commerce · WordPress · React',
   experienceYears: '5+ Years',

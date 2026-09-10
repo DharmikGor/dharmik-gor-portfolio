@@ -1,4 +1,5 @@
 import { profile, contact, navigation, footer, socialLinks } from '../data/profile';
+import Logo from './Logo';
 
 export default function Footer() {
   const handleNavClick = (href: string) => (e: React.MouseEvent) => {
@@ -12,9 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <a href="#top" onClick={handleNavClick('#top')} className="flex items-center gap-2.5 mb-5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-paper text-ink text-sm font-display font-bold">
-                {profile.initials}
-              </span>
+              <Logo bg="#F7F5F1" fg="#14130F" />
               <span className="font-display font-semibold text-paper">{profile.name}</span>
             </a>
             <p className="text-sm text-stone-400 max-w-xs">{profile.title}</p>
