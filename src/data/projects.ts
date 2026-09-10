@@ -28,6 +28,7 @@ export const projects: Project[] = [
       'Redesigned the storefront for this Atlanta/Nashville ice-and-snow delivery service, with real-time ordering and last-mile delivery logistics.',
     technologies: ['Shopify', 'Shopify Bundles', 'Onfleet', 'Google Calendar'],
     image: '/images/projects/case-study-iceman.svg',
+    viewProjectUrl: 'https://myiceman.com/',
     isPlaceholder: false,
   },
   {
@@ -39,6 +40,7 @@ export const projects: Project[] = [
       'Complete store redesign with a mobile-first theme, optimized checkout flow and upsell functionality.',
     technologies: ['Shopify', 'Shopify Apps', 'Liquid', 'JavaScript'],
     image: '/images/projects/case-study-wipstitch.svg',
+    viewProjectUrl: 'https://wipstitch.com/',
     isPlaceholder: false,
   },
   {
@@ -50,6 +52,7 @@ export const projects: Project[] = [
       'Mobile-first D2C and international B2B store with enhanced account structures, NetSuite ERP integration and CRO tooling.',
     technologies: ['Shopify', 'NetSuite', 'Recharge', 'Okendo', 'Rebuy', 'Shopify Flow', 'Klaviyo'],
     image: '/images/projects/case-study-lira-clinical.svg',
+    viewProjectUrl: 'https://liraclinical.com/',
     isPlaceholder: false,
   },
   {
@@ -61,6 +64,7 @@ export const projects: Project[] = [
       'Redesigned and optimized D2C and B2B storefronts on Shopify Plus with strategic upsells and product bundles.',
     technologies: ['Shopify Plus', 'Yotpo', 'Recharge', 'Klaviyo', 'Rebuy', 'Matrixify'],
     image: '/images/projects/case-study-dazzle-dry.svg',
+    viewProjectUrl: 'https://dazzledry.com/',
     isPlaceholder: false,
   },
 ];

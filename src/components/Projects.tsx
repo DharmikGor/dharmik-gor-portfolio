@@ -51,6 +51,19 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {project.viewProjectUrl && (
+                    <div className="mt-6">
+                      <a
+                        href={project.viewProjectUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="text-sm font-semibold text-ink transition-colors hover:text-accent-600"
+                      >
+                        View Project →
+                      </a>
+                    </div>
+                  )}
                 </div>
               </article>
             </Reveal>
