@@ -117,7 +117,7 @@ export const projects: Project[] = [
       'Built a conversion-focused WordPress landing site with the Divi theme for an AI operating system for independent financial advisory firms, presenting its four product systems, onboarding steps, tiered pricing, cost comparison and FAQ with demo-booking calls to action throughout.',
     technologies: ['WordPress', 'Divi Theme Builder', 'Custom CSS', 'Responsive Design', 'Pricing Tables', 'FAQ Accordion'],
     image: '/images/projects/case-study-intelligent-advisor.svg',
-    viewProjectUrl: 'https://intelligent-advisor.flywheelsites.com/',
+    viewProjectUrl: 'https://intelligentadvisor.com/',
     isPlaceholder: false,
   },
 ];
