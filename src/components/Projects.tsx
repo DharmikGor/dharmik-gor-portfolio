@@ -8,8 +8,8 @@ export default function Projects() {
       <div className="container-content">
         <SectionHeading
           eyebrow="Selected Work"
-          title="Recent Shopify builds."
-          supporting="Shopify development delivered through an agency development partnership — public case study credit sits with the partner agency."
+          title="Recent Shopify & WordPress builds."
+          supporting="Shopify development delivered through an agency development partnership — public case study credit sits with the partner agency — alongside custom WordPress builds."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">

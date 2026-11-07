@@ -1,8 +1,9 @@
-// Real client work delivered via The CodeWhiz Solution's white-label
-// development partnership with Arctic Grey, a Shopify Plus agency.
-// Arctic Grey holds the public client relationship and case study
-// credit; these entries describe the Shopify development work done
-// on each store.
+// Shopify entries (01–06): real client work delivered via The CodeWhiz
+// Solution's white-label development partnership with Arctic Grey, a
+// Shopify Plus agency. Arctic Grey holds the public client relationship
+// and case study credit; these entries describe the Shopify development
+// work done on each store.
+// WordPress entries (07+): WordPress/Divi builds.
 
 export interface Project {
   id: string;
@@ -105,6 +106,18 @@ export const projects: Project[] = [
     image: '/images/projects/case-study-nourish-food-club.svg',
     results: ['144% sales increase within 90 days', '34% increase in sessions', '22% AOV increase', '53% increase in total orders'],
     viewProjectUrl: 'https://nourishfoodclub.com/',
+    isPlaceholder: false,
+  },
+  {
+    id: 'intelligent-advisor',
+    number: '07',
+    title: 'Intelligent Advisor',
+    category: 'WordPress',
+    description:
+      'Built a conversion-focused WordPress landing site with the Divi theme for an AI operating system for independent financial advisory firms, presenting its four product systems, onboarding steps, tiered pricing, cost comparison and FAQ with demo-booking calls to action throughout.',
+    technologies: ['WordPress', 'Divi Theme Builder', 'Custom CSS', 'Responsive Design', 'Pricing Tables', 'FAQ Accordion'],
+    image: '/images/projects/case-study-intelligent-advisor.svg',
+    viewProjectUrl: 'https://intelligent-advisor.flywheelsites.com/',
     isPlaceholder: false,
   },
 ];
