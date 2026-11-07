@@ -3,7 +3,10 @@ import PageShell from './PageShell';
 
 export default function NotFoundPage() {
   return (
-    <PageShell title="Page not found | Dharmik Gor">
+    <PageShell title="Page not found | Dharmik Gor"
+      description="This page doesn't exist."
+      path="/404"
+      noindex>
       <section className="section-padding">
         <div className="container-content text-center">
           <p className="eyebrow">404</p>

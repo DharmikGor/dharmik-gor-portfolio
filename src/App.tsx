@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
-import InsightsPage from './pages/InsightsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import ServicesPage from './pages/ServicesPage';
@@ -20,8 +19,6 @@ function renderRoute(path: string) {
       return <ServicesPage />;
     case '/work':
       return <WorkPage />;
-    case '/insights':
-      return <InsightsPage />;
     case '/contact':
       return <ContactPage />;
   }

@@ -32,7 +32,11 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
   const related = relatedProjects(project, 3);
 
   return (
-    <PageShell title={`${project.title} — ${project.category} Case Study | Dharmik Gor`}>
+    <PageShell
+      title={`${project.title} — ${project.category} Case Study | Dharmik Gor`}
+      description={`${project.tagline} ${project.results?.slice(0, 2).join(', ') ?? ''}`.trim()}
+      path={`/work/${project.id}`}
+    >
       {/* Hero */}
       <section className="pt-12 pb-16 sm:pt-16 sm:pb-20">
         <div className="container-content">

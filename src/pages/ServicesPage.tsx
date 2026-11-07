@@ -7,7 +7,9 @@ import PageShell from './PageShell';
 
 export default function ServicesPage() {
   return (
-    <PageShell title="Services | Dharmik Gor">
+    <PageShell title="Services | Shopify, Shopify Plus & WordPress Development — Dharmik Gor"
+      description="Shopify theme development, Shopify Plus and B2B builds, checkout extensions, custom apps, API/ERP integrations, store migrations and WordPress development."
+      path="/services">
       <Services />
       <ShopifyExpertise />
       <ComplexCommerce />

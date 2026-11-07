@@ -7,7 +7,10 @@ import PageShell from './PageShell';
 
 export default function HomePage() {
   return (
-    <PageShell title="Dharmik Gor | Senior Shopify & WordPress Developer" flush>
+    <PageShell title="Dharmik Gor | Senior Shopify & WordPress Developer"
+      description="Freelance Shopify, Shopify Plus & WordPress developer with 5+ years of experience. Custom themes, B2B, integrations and migrations for brands and agencies."
+      path="/"
+      flush>
       <Hero />
       <Highlights />
       <Projects limit={4} />
