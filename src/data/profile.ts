@@ -46,8 +46,8 @@ export const hero = {
   headline: 'Helping brands & agencies build Shopify stores that sell.',
   supporting:
     "5+ years partnering with brands, merchants and agencies worldwide to build, customize and scale e-commerce websites — with clear communication and dependable delivery on every project.",
-  ctaPrimary: { label: "Let's Work Together", href: '#contact' },
-  ctaSecondary: { label: 'View My Work', href: '#work' },
+  ctaPrimary: { label: "Let's Work Together", href: '/contact' },
+  ctaSecondary: { label: 'View My Work', href: '/work' },
   availability: profile.availability,
   techLabels: ['SHOPIFY', 'SHOPIFY PLUS', 'LIQUID', 'WORDPRESS', 'REACT', 'E-COMMERCE'] as string[],
 };
@@ -86,12 +86,12 @@ export const contactSection = {
 };
 
 export const navigation = [
-  { label: 'About', href: '#about' },
-  { label: 'Expertise', href: '#expertise' },
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
-  { label: 'Insights', href: '#insights' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Work', href: '/work' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const footer = {

@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import { navigation, profile } from '../data/profile';
-import { useActiveSection } from '../hooks/useActiveSection';
+import { Link, usePathname } from '../router';
 import Logo from './Logo';
 
-const sectionIds = navigation.map((item) => item.href.replace('#', ''));
+function isActivePath(pathname: string, href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const activeId = useActiveSection(sectionIds);
+  const pathname = usePathname();
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
@@ -26,12 +29,10 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => {
     setMenuOpen(false);
-  };
+  }, [pathname]);
 
   return (
     <header
@@ -48,27 +49,25 @@ export default function Navbar() {
       </div>
 
       <nav className="container-content flex items-center justify-between py-5" aria-label="Primary">
-        <a
-          href="#top"
-          onClick={handleNavClick('#top')}
+        <Link
+          href="/"
           className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-ink"
         >
           <Logo />
           <span className="hidden sm:inline">{profile.name}</span>
-        </a>
+        </Link>
 
         <ul className="hidden lg:flex items-center gap-8">
           {navigation.map((item) => {
-            const isActive = activeId === item.href.replace('#', '');
+            const isActive = isActivePath(pathname, item.href);
             return (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
-                  onClick={handleNavClick(item.href)}
                   className={`relative text-sm font-medium transition-colors duration-300 ${
                     isActive ? 'text-ink' : 'text-stone-500 hover:text-ink'
                   }`}
-                  aria-current={isActive ? 'true' : undefined}
+                  aria-current={isActive ? 'page' : undefined}
                 >
                   {item.label}
                   {isActive && (
@@ -77,15 +76,15 @@ export default function Navbar() {
                       className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-accent-500"
                     />
                   )}
-                </a>
+                </Link>
               </li>
             );
           })}
         </ul>
 
-        <a href="#contact" onClick={handleNavClick('#contact')} className="hidden lg:inline-flex btn-primary">
+        <Link href="/contact" className="hidden lg:inline-flex btn-primary">
           Let's Talk
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -128,19 +127,21 @@ export default function Navbar() {
             <ul className="container-content flex flex-col gap-1 py-6">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
-                    onClick={handleNavClick(item.href)}
-                    className="block py-3 text-lg font-display font-medium text-ink"
+                    onClick={() => setMenuOpen(false)}
+                    className={`block py-3 text-lg font-display font-medium ${
+                      isActivePath(pathname, item.href) ? 'text-accent-600' : 'text-ink'
+                    }`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-4">
-                <a href="#contact" onClick={handleNavClick('#contact')} className="btn-primary w-full">
+                <Link href="/contact" onClick={() => setMenuOpen(false)} className="btn-primary w-full">
                   Let's Talk
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>

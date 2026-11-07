@@ -1,8 +1,16 @@
 import { projects } from '../data/projects';
+import { Link } from '../router';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 
-export default function Projects() {
+interface ProjectsProps {
+  /** Show only the first N projects (used for the home page preview). */
+  limit?: number;
+}
+
+export default function Projects({ limit }: ProjectsProps) {
+  const list = limit ? projects.slice(0, limit) : projects;
+
   return (
     <section id="work" className="section-padding border-t border-stone-200 bg-stone-50/60">
       <div className="container-content">
@@ -13,22 +21,24 @@ export default function Projects() {
         />
 
         <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {projects.map((project, i) => (
+          {list.map((project, i) => (
             <Reveal key={project.id} delay={i * 0.06}>
-              <article className="group h-full overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_24px_48px_-20px_rgba(20,19,15,0.16)]">
-                <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} case study cover`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
-                  />
-                  {project.isPlaceholder && (
-                    <span className="absolute left-4 top-4 rounded-full bg-ink/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-paper">
-                      Placeholder Project
-                    </span>
-                  )}
-                </div>
+              <article className="group relative h-full overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_24px_48px_-20px_rgba(20,19,15,0.16)]">
+                <Link href={`/work/${project.id}`} className="block" aria-label={`${project.title} case study`}>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} case study cover`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
+                    />
+                    {project.isPlaceholder && (
+                      <span className="absolute left-4 top-4 rounded-full bg-ink/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-paper">
+                        Placeholder Project
+                      </span>
+                    )}
+                  </div>
+                </Link>
 
                 <div className="p-7">
                   <div className="flex items-center justify-between gap-3">
@@ -38,7 +48,11 @@ export default function Projects() {
                     <span className="tag-chip !py-1">{project.category}</span>
                   </div>
 
-                  <h3 className="mt-4 font-display text-xl font-semibold text-ink">{project.title}</h3>
+                  <h3 className="mt-4 font-display text-xl font-semibold text-ink">
+                    <Link href={`/work/${project.id}`} className="transition-colors hover:text-accent-600">
+                      {project.title}
+                    </Link>
+                  </h3>
                   <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-stone-600">
                     {project.description}
                   </p>
@@ -65,23 +79,37 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {project.viewProjectUrl && (
-                    <div className="mt-6">
+                  <div className="mt-6 flex flex-wrap items-center gap-6">
+                    <Link
+                      href={`/work/${project.id}`}
+                      className="text-sm font-semibold text-ink transition-colors hover:text-accent-600"
+                    >
+                      Case Study →
+                    </Link>
+                    {project.viewProjectUrl && (
                       <a
                         href={project.viewProjectUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="text-sm font-semibold text-ink transition-colors hover:text-accent-600"
+                        className="text-sm font-semibold text-stone-500 transition-colors hover:text-accent-600"
                       >
-                        View Project →
+                        Live Site ↗
                       </a>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </article>
             </Reveal>
           ))}
         </div>
+
+        {limit && projects.length > limit && (
+          <div className="mt-12 flex justify-center">
+            <Link href="/work" className="btn-secondary">
+              View All Work →
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
