@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { hero, profile } from '../data/profile';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { Link } from '../router';
 
 const wordVariants = {
   hidden: { opacity: 0, y: 32 },
@@ -77,12 +78,12 @@ export default function Hero() {
           transition={{ delay: 1.05, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <a href={hero.ctaPrimary.href} className="btn-primary">
+          <Link href={hero.ctaPrimary.href} className="btn-primary">
             {hero.ctaPrimary.label}
-          </a>
-          <a href={hero.ctaSecondary.href} className="btn-secondary">
+          </Link>
+          <Link href={hero.ctaSecondary.href} className="btn-secondary">
             {hero.ctaSecondary.label}
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div

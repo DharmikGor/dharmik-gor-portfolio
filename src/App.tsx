@@ -1,20 +1,40 @@
-import About from './components/About';
-import Blog from './components/Blog';
-import Certifications from './components/Certifications';
-import ComplexCommerce from './components/ComplexCommerce';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Highlights from './components/Highlights';
 import Navbar from './components/Navbar';
-import Process from './components/Process';
-import Projects from './components/Projects';
-import Services from './components/Services';
-import ShopifyExpertise from './components/ShopifyExpertise';
-import Skills from './components/Skills';
-import Testimonials from './components/Testimonials';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
+import InsightsPage from './pages/InsightsPage';
+import NotFoundPage from './pages/NotFoundPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import ServicesPage from './pages/ServicesPage';
+import WorkPage from './pages/WorkPage';
+import { usePathname } from './router';
+
+function renderRoute(path: string) {
+  switch (path) {
+    case '/':
+      return <HomePage />;
+    case '/about':
+      return <AboutPage />;
+    case '/services':
+      return <ServicesPage />;
+    case '/work':
+      return <WorkPage />;
+    case '/insights':
+      return <InsightsPage />;
+    case '/contact':
+      return <ContactPage />;
+  }
+
+  const projectMatch = path.match(/^\/work\/([a-z0-9-]+)$/);
+  if (projectMatch) return <ProjectDetailPage key={projectMatch[1]} projectId={projectMatch[1]} />;
+
+  return <NotFoundPage />;
+}
 
 export default function App() {
+  const pathname = usePathname();
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-paper">
       <a
@@ -26,20 +46,8 @@ export default function App() {
 
       <Navbar />
 
-      <main id="main-content">
-        <Hero />
-        <About />
-        <Skills />
-        <ShopifyExpertise />
-        <Services />
-        <ComplexCommerce />
-        <Highlights />
-        <Process />
-        <Projects />
-        <Testimonials />
-        <Certifications />
-        <Blog />
-        <Contact />
+      <main id="main-content" key={pathname}>
+        {renderRoute(pathname)}
       </main>
 
       <Footer />

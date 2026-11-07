@@ -1,21 +1,17 @@
 import { profile, contact, navigation, footer, socialLinks } from '../data/profile';
+import { Link } from '../router';
 import Logo from './Logo';
 
 export default function Footer() {
-  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
     <footer className="border-t border-stone-200 bg-charcoal text-stone-300">
       <div className="container-content py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <a href="#top" onClick={handleNavClick('#top')} className="flex items-center gap-2.5 mb-5">
+            <Link href="/" className="flex items-center gap-2.5 mb-5">
               <Logo bg="#F7F5F1" fg="#14130F" />
               <span className="font-display font-semibold text-paper">{profile.name}</span>
-            </a>
+            </Link>
             <p className="text-sm text-stone-400 max-w-xs">{profile.title}</p>
             <p className="mt-4 text-xs tracking-wide text-stone-500">{footer.techLine}</p>
           </div>
@@ -25,13 +21,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
-                    onClick={handleNavClick(item.href)}
                     className="text-sm text-stone-400 hover:text-paper transition-colors duration-300"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
