@@ -38,11 +38,15 @@ export default function FeaturedBuilds() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="eyebrow">Showcase</p>
+              <p className="eyebrow">Selected Work</p>
               <h2 id="featured-heading" className="mt-4 flex items-baseline gap-3 text-display-md font-display font-semibold text-ink">
                 Featured builds
                 <span className="font-mono text-sm font-medium text-stone-400">{total}</span>
               </h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone-600">
+                Recent Shopify &amp; WordPress builds. Shopify development delivered through an agency development
+                partnership — public case study credit sits with the partner agency.
+              </p>
             </div>
 
             <div className="flex items-center gap-3">
@@ -207,6 +211,12 @@ export default function FeaturedBuilds() {
               </button>
             );
           })}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link href="/work" className="btn-secondary">
+            View All Work →
+          </Link>
         </div>
       </div>
     </section>
