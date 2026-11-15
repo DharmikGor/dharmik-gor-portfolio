@@ -34,6 +34,8 @@ export interface Project {
   fullPage: string;
   /** Small 16:10 crop of the full-page capture, used in thumbnail strips. */
   thumb: string;
+  /** Optional tall full-page mobile capture, shown in a phone frame next to the desktop preview. */
+  mobilePage?: string;
   technologies: string[];
   /** Fallback cover art (SVG). */
   image: string;
@@ -295,6 +297,7 @@ export const projects: Project[] = [
       { src: '/images/projects/intelligent-advisor-section.webp', caption: 'Pricing tiers with the Full OS plan highlighted' },
     ],
     fullPage: '/images/projects/intelligent-advisor-full.webp',
+    mobilePage: '/images/projects/intelligent-advisor-mobile.webp',
     thumb: '/images/projects/intelligent-advisor-thumb.webp',
     technologies: ['WordPress', 'Divi Theme Builder', 'Custom CSS', 'Responsive Design', 'Pricing Tables', 'FAQ Accordion'],
     image: '/images/projects/case-study-intelligent-advisor.svg',

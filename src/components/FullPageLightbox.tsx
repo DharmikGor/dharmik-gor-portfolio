@@ -9,10 +9,12 @@ interface FullPageLightboxProps {
   title: string;
   url?: string;
   host?: string;
+  /** Phone-width window for mobile captures. */
+  narrow?: boolean;
 }
 
 /** Modal that shows a full-page screenshot in a scrollable browser window. */
-export default function FullPageLightbox({ open, onClose, src, title, url, host }: FullPageLightboxProps) {
+export default function FullPageLightbox({ open, onClose, src, title, url, host, narrow = false }: FullPageLightboxProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function FullPageLightbox({ open, onClose, src, title, url, host 
           aria-label={`${title} — full-page screenshot`}
         >
           <motion.div
-            className="flex h-full max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
+            className={`flex h-full max-h-[92vh] w-full flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ${narrow ? 'max-w-sm' : 'max-w-5xl'}`}
             initial={{ y: 24, scale: 0.98 }}
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 16, scale: 0.98 }}

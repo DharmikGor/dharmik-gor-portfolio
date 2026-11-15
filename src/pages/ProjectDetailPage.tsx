@@ -1,6 +1,6 @@
 import BrowserFrame from '../components/BrowserFrame';
 import Reveal from '../components/Reveal';
-import ScrollShot from '../components/ScrollShot';
+import ScrollShot, { ScrollHint } from '../components/ScrollShot';
 import { projects, type Project } from '../data/projects';
 import { Link } from '../router';
 import CtaBand from './CtaBand';
@@ -82,7 +82,30 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
           </div>
 
           <Reveal delay={0.1} className="mt-14">
-            <ScrollShot src={project.fullPage} title={project.title} url={project.viewProjectUrl} priority />
+            {project.mobilePage ? (
+              <>
+                <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-8">
+                  <ScrollShot
+                    src={project.fullPage}
+                    title={project.title}
+                    url={project.viewProjectUrl}
+                    priority
+                    showHint={false}
+                  />
+                  <ScrollShot
+                    device="phone"
+                    src={project.mobilePage}
+                    title={project.title}
+                    url={project.viewProjectUrl}
+                    priority
+                    showHint={false}
+                  />
+                </div>
+                <ScrollHint className="mt-5" />
+              </>
+            ) : (
+              <ScrollShot src={project.fullPage} title={project.title} url={project.viewProjectUrl} priority />
+            )}
           </Reveal>
 
           {project.results && project.results.length > 0 && (
