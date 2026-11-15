@@ -8,7 +8,7 @@ export default function About() {
       <div className="container-content">
         <SectionHeading eyebrow={about.sectionTitle} title={about.headline} />
 
-        <div className="mt-14 grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.15fr] lg:items-start">
           <Reveal>
             <div className="relative">
               <div className="aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-stone-300 bg-gradient-to-br from-stone-800 via-stone-900 to-charcoal">

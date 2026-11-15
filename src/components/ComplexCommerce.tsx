@@ -8,7 +8,7 @@ export default function ComplexCommerce() {
       <div className="container-content">
         <SectionHeading eyebrow="Complex E-commerce Experience" title="Beyond the Theme Editor." />
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {complexCommerceItems.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.07}>
               <div className="card-premium h-full">

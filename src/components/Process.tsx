@@ -8,7 +8,7 @@ export default function Process() {
       <div className="container-content">
         <SectionHeading eyebrow="How I Work" title="A practical, transparent process." />
 
-        <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {processSteps.map((step, i) => (
             <Reveal key={step.number} delay={i * 0.06}>
               <div className="flex gap-5">

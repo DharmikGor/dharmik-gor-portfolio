@@ -81,7 +81,7 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
             </Reveal>
           </div>
 
-          <Reveal delay={0.1} className="mt-14">
+          <Reveal delay={0.1} className="mt-10 sm:mt-12">
             {project.mobilePage ? (
               <>
                 <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.34fr)] md:gap-6 lg:gap-8">

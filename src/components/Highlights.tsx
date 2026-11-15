@@ -8,7 +8,7 @@ export default function Highlights() {
       <div className="container-content">
         <SectionHeading eyebrow="Highlights" title="A quick snapshot." align="center" />
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 sm:mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {highlights.map((item, i) => (
             <Reveal key={item.label} delay={i * 0.06}>
               <div className="card-premium h-full text-center">

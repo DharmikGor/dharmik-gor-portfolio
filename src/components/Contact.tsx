@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="container-content">
         <SectionHeading eyebrow="Contact" title={contactSection.headline} supporting={contactSection.supporting} />
 
-        <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <dl className="space-y-6">
               <div>

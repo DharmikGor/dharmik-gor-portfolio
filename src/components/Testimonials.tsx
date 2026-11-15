@@ -8,7 +8,7 @@ export default function Testimonials() {
       <div className="container-content">
         <SectionHeading eyebrow="Client Feedback" title="What people say about working with me." align="center" />
 
-        <div className="mt-14 flex flex-wrap justify-center gap-8">
+        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-8">
           {testimonials.map((testimonial, i) => (
             <Reveal key={testimonial.id} delay={i * 0.08} className="w-full max-w-xl">
               <figure className="card-premium h-full">

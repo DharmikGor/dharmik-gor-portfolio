@@ -8,7 +8,7 @@ export default function Blog() {
       <div className="container-content">
         <SectionHeading eyebrow="Blog / Insights" title="Notes on Shopify & e-commerce development." />
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {blogPosts.map((post, i) => (
             <Reveal key={post.id} delay={i * 0.07}>
               <article className="card-premium h-full flex flex-col">

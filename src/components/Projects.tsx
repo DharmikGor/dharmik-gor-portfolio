@@ -21,7 +21,7 @@ export default function Projects({ limit }: ProjectsProps) {
           supporting="Shopify development delivered through an agency development partnership — public case study credit sits with the partner agency — alongside custom WordPress builds."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
           {list.map((project, i) => (
             <Reveal key={project.id} delay={i * 0.06}>
               <article className="group relative h-full overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_24px_48px_-20px_rgba(20,19,15,0.16)]">

@@ -21,7 +21,7 @@ export default function ShopifyExpertise() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-10 sm:mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {shopifyCapabilities.map((capability, i) => (
             <Reveal key={capability} delay={i * 0.04}>
               <div className="group h-full rounded-xl border border-stone-700 bg-stone-900/60 p-5 transition-all duration-300 ease-premium hover:border-accent-500 hover:bg-stone-900">

@@ -11,7 +11,7 @@ export default function Services() {
           title="Development support built around your e-commerce needs."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.number} delay={i * 0.07}>
               <div className="card-premium h-full flex flex-col">

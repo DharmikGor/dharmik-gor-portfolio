@@ -17,7 +17,7 @@ export default function Hero() {
   const words = hero.headline.split(' ');
 
   return (
-    <section id="top" className="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32">
+    <section id="top" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
       {/* subtle background grid — decorative only */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"

@@ -12,7 +12,7 @@ export default function Skills() {
           supporting="WordPress, React and PHP round out a stack built primarily for serious e-commerce work."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
           {skillGroups.map((group, i) => (
             <Reveal key={group.category} delay={i * 0.08}>
               <div className="card-premium h-full">
