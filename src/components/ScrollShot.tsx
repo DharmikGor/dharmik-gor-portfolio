@@ -105,6 +105,29 @@ export default function ScrollShot({
   };
   const scrollUp = () => glideTo(0);
 
+  // Mouse users get the scroll from hover; focus only drives it for keyboard users.
+  // A click also focuses the button, and closing the lightbox hands focus back to it,
+  // so neither of those should keep the page scrolling once the pointer has left.
+  const suppressFocusRef = useRef(false);
+  const handleFocus = (e: { currentTarget: HTMLButtonElement }) => {
+    if (suppressFocusRef.current) {
+      suppressFocusRef.current = false;
+      return;
+    }
+    if (e.currentTarget.matches(':focus-visible') && !e.currentTarget.matches(':hover')) scrollDown();
+  };
+  const handleBlur = (e: { currentTarget: HTMLButtonElement }) => {
+    if (!e.currentTarget.matches(':hover')) scrollUp();
+  };
+  const closeLightbox = () => {
+    suppressFocusRef.current = true;
+    setOpen(false);
+    window.setTimeout(() => {
+      suppressFocusRef.current = false;
+      if (!frameRef.current?.matches(':hover')) scrollUp();
+    }, 50);
+  };
+
   const viewport = (
     <button
       ref={frameRef}
@@ -116,8 +139,8 @@ export default function ScrollShot({
       }`}
       onMouseEnter={scrollDown}
       onMouseLeave={scrollUp}
-      onFocus={scrollDown}
-      onBlur={scrollUp}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     >
       <img
         src={src}
@@ -170,7 +193,7 @@ export default function ScrollShot({
 
       <FullPageLightbox
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={closeLightbox}
         src={src}
         title={isPhone ? `${title} · Mobile` : title}
         url={url}
