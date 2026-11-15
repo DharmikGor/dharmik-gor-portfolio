@@ -20,9 +20,16 @@ export default function FeaturedBuilds() {
   const go = (next: number) => {
     const i = (next + total) % total;
     setIndex(i);
-    // Keep the active thumbnail visible in the strip on small screens.
-    const thumb = stripRef.current?.querySelector<HTMLElement>(`[data-index="${i}"]`);
-    thumb?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    // Keep the active thumbnail visible in the strip on small screens
+    // (scrolls the strip only — never the page).
+    const strip = stripRef.current;
+    const thumb = strip?.querySelector<HTMLElement>(`[data-index="${i}"]`);
+    if (strip && thumb) {
+      strip.scrollTo({
+        left: thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2,
+        behavior: reduced ? 'auto' : 'smooth',
+      });
+    }
   };
 
   return (
@@ -63,13 +70,15 @@ export default function FeaturedBuilds() {
         </Reveal>
 
         <Reveal delay={0.08} className="mt-10">
-          <div className="rounded-3xl border border-stone-200 bg-white p-5 sm:p-8">
-            <AnimatePresence mode="wait" initial={false}>
+          {/* Old and new slides share one grid cell while cross-fading, so the card never collapses. */}
+          <div className="grid rounded-3xl border border-stone-200 bg-white p-5 sm:p-8">
+            <AnimatePresence initial={false}>
               <motion.article
                 key={project.id}
+                style={{ gridArea: '1 / 1' }}
                 initial={{ opacity: 0, y: reduced ? 0 : 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: reduced ? 0 : -8 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: reduced ? 0.01 : 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 gap-8 lg:grid-cols-[1.55fr_1fr] lg:gap-10"
               >
