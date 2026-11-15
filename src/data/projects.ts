@@ -230,6 +230,7 @@ export const projects: Project[] = [
       { src: '/images/projects/albee-baby-section.webp', caption: 'Mega menu for the stroller catalog' },
     ],
     fullPage: '/images/projects/albee-baby-full.webp',
+    mobilePage: '/images/projects/albee-baby-mobile.webp',
     thumb: '/images/projects/albee-baby-thumb.webp',
     technologies: ['Shopify Custom Theme', 'Registry & Loyalty Program', 'Advanced Discounting', 'Mega Menu', 'Sliding Cart Drawer'],
     image: '/images/projects/case-study-albee-baby.svg',
