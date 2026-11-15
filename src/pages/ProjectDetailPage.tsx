@@ -286,10 +286,13 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
                 >
                   <div className="aspect-[16/10] overflow-hidden bg-stone-200">
                     <img
-                      src={item.image}
-                      alt={`${item.title} case study cover`}
+                      src={item.cover}
+                      alt={`${item.title} — live homepage`}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
+                      decoding="async"
+                      width={1120}
+                      height={700}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="p-6">
