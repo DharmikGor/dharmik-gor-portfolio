@@ -163,7 +163,7 @@ export default function ScrollShot({
   return (
     <figure className={className}>
       {isPhone ? (
-        <div className="relative mx-auto w-full max-w-[260px] rounded-[2.1rem] bg-ink p-2 shadow-[0_32px_64px_-28px_rgba(20,19,15,0.55)]">
+        <div className="relative mx-auto w-full max-w-[260px] rounded-[2.1rem] bg-ink p-2 shadow-[0_32px_64px_-28px_rgba(20,19,15,0.55)] md:max-w-none">
           <span
             className="pointer-events-none absolute left-1/2 top-3.5 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-ink"
             aria-hidden="true"

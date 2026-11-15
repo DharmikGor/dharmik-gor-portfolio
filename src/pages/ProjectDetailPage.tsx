@@ -84,7 +84,7 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
           <Reveal delay={0.1} className="mt-14">
             {project.mobilePage ? (
               <>
-                <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-8">
+                <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.29fr)] md:gap-6 lg:gap-8">
                   <ScrollShot
                     src={project.fullPage}
                     title={project.title}
