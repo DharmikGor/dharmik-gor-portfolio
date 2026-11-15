@@ -1,6 +1,7 @@
 import { projects } from '../data/projects';
 import { Link } from '../router';
 import Reveal from './Reveal';
+import ScrollShot, { ScrollHint } from './ScrollShot';
 import SectionHeading from './SectionHeading';
 
 interface ProjectsProps {
@@ -24,24 +25,36 @@ export default function Projects({ limit }: ProjectsProps) {
           {list.map((project, i) => (
             <Reveal key={project.id} delay={i * 0.06}>
               <article className="group relative h-full overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_24px_48px_-20px_rgba(20,19,15,0.16)]">
-                <Link href={`/work/${project.id}`} className="block" aria-label={`${project.title} case study`}>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
-                    <img
-                      src={project.cover}
-                      alt={`${project.title} — live homepage`}
-                      loading="lazy"
-                      decoding="async"
-                      width={1120}
-                      height={700}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
-                    />
-                    {project.isPlaceholder && (
-                      <span className="absolute left-4 top-4 rounded-full bg-ink/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-paper">
-                        Placeholder Project
-                      </span>
-                    )}
-                  </div>
-                </Link>
+                {/* Desktop + phone hover-to-scroll previews; the 0.34 ratio keeps both frames the same height. */}
+                <div className="relative border-b border-stone-200 bg-stone-100/70 p-4 sm:p-5">
+                  {project.mobilePage ? (
+                    <div className="grid grid-cols-1 items-end gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,0.34fr)] sm:gap-4 md:grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.34fr)]">
+                      <ScrollShot
+                        src={project.fullPage}
+                        title={project.title}
+                        url={project.viewProjectUrl}
+                        showHint={false}
+                      />
+                      <ScrollShot
+                        device="phone"
+                        src={project.mobilePage}
+                        title={project.title}
+                        url={project.viewProjectUrl}
+                        showHint={false}
+                        // Hidden where the card is too narrow for a readable phone (phones, and md's two-column grid).
+                        className="hidden sm:block md:hidden lg:block"
+                      />
+                    </div>
+                  ) : (
+                    <ScrollShot src={project.fullPage} title={project.title} url={project.viewProjectUrl} showHint={false} />
+                  )}
+                  <ScrollHint className="mt-3" />
+                  {project.isPlaceholder && (
+                    <span className="absolute left-6 top-6 rounded-full bg-ink/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-paper">
+                      Placeholder Project
+                    </span>
+                  )}
+                </div>
 
                 <div className="p-7">
                   <div className="flex items-center justify-between gap-3">
