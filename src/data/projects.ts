@@ -76,6 +76,7 @@ export const projects: Project[] = [
       { src: '/images/projects/iceman-section.webp', caption: 'Service lines: on-demand, events, industrial and film' },
     ],
     fullPage: '/images/projects/iceman-full.webp',
+    mobilePage: '/images/projects/iceman-mobile.webp',
     thumb: '/images/projects/iceman-thumb.webp',
     technologies: ['Shopify', 'Onfleet', 'Shopify Bundles', 'Google Calendar Sync', 'Geo-location Order Routing'],
     image: '/images/projects/case-study-iceman.svg',
