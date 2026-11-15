@@ -27,10 +27,13 @@ export default function Projects({ limit }: ProjectsProps) {
                 <Link href={`/work/${project.id}`} className="block" aria-label={`${project.title} case study`}>
                   <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
                     <img
-                      src={project.image}
-                      alt={`${project.title} case study cover`}
+                      src={project.cover}
+                      alt={`${project.title} — live homepage`}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
+                      decoding="async"
+                      width={1120}
+                      height={700}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
                     />
                     {project.isPlaceholder && (
                       <span className="absolute left-4 top-4 rounded-full bg-ink/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-paper">
