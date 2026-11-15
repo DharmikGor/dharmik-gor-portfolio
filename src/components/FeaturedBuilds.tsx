@@ -4,7 +4,7 @@ import { projects } from '../data/projects';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import { Link } from '../router';
 import Reveal from './Reveal';
-import ScrollShot from './ScrollShot';
+import ScrollShot, { ScrollHint } from './ScrollShot';
 
 /**
  * Home page showcase: one featured build at a time with a hover-to-scroll
@@ -80,9 +80,32 @@ export default function FeaturedBuilds() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: reduced ? 0.01 : 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 gap-8 lg:grid-cols-[1.55fr_1fr] lg:gap-10"
+                className="grid grid-cols-1 gap-8 lg:grid-cols-[1.8fr_1fr] lg:gap-10"
               >
-                <ScrollShot src={project.fullPage} title={project.title} url={project.viewProjectUrl} />
+                {project.mobilePage ? (
+                  <div>
+                    {/* Desktop + phone side by side; the 0.34 ratio keeps both frames the same height. */}
+                    <div className="grid grid-cols-1 items-end gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,0.34fr)] lg:gap-5">
+                      <ScrollShot
+                        src={project.fullPage}
+                        title={project.title}
+                        url={project.viewProjectUrl}
+                        showHint={false}
+                      />
+                      <ScrollShot
+                        device="phone"
+                        src={project.mobilePage}
+                        title={project.title}
+                        url={project.viewProjectUrl}
+                        showHint={false}
+                        className="hidden sm:block"
+                      />
+                    </div>
+                    <ScrollHint className="mt-3" />
+                  </div>
+                ) : (
+                  <ScrollShot src={project.fullPage} title={project.title} url={project.viewProjectUrl} />
+                )}
 
                 <div className="flex flex-col">
                   <div className="flex items-center gap-3">
