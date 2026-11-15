@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, type CSSProperties, type SyntheticEvent } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import FullPageLightbox from './FullPageLightbox';
 
 interface ScrollShotProps {
@@ -15,6 +15,9 @@ interface ScrollShotProps {
   showHint?: boolean;
   className?: string;
 }
+
+/** Reading speed: how many visible-window heights the page moves per second. */
+const SCREENS_PER_SECOND = 0.45;
 
 function hostOf(url?: string) {
   if (!url) return '';
@@ -49,22 +52,58 @@ export default function ScrollShot({
   className = '',
 }: ScrollShotProps) {
   const [open, setOpen] = useState(false);
-  const [duration, setDuration] = useState(8);
   const frameRef = useRef<HTMLButtonElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const shiftRef = useRef(0);
   const host = hostOf(url);
   const isPhone = device === 'phone';
   const label = isPhone ? 'mobile' : 'desktop';
 
-  // Scroll speed follows page length so short and long pages move at a similar pace.
-  const handleLoad = useCallback((e: SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget;
+  // How far the image can travel: rendered image height minus the visible window.
+  const measure = useCallback(() => {
+    const img = imgRef.current;
     const frame = frameRef.current;
-    if (!img.naturalWidth || !frame || !frame.clientWidth) return;
-    const pageRatio = img.naturalHeight / img.naturalWidth;
-    const frameRatio = frame.clientHeight / frame.clientWidth;
-    const screens = Math.max(pageRatio / frameRatio, 1);
-    setDuration(Math.min(Math.max(screens * 1.3, 4), 14));
+    if (!img || !frame) return;
+    shiftRef.current = Math.max(img.offsetHeight - frame.clientHeight, 0);
   }, []);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(measure);
+    ro.observe(frame);
+    return () => ro.disconnect();
+  }, [measure]);
+
+  /**
+   * Glide the screenshot to `target` px from the top at a constant reading speed
+   * (same speed down and back up, wherever the glide was interrupted).
+   * Uses a GPU-composited transform so long pages scroll without stutter.
+   */
+  const glideTo = useCallback((target: number) => {
+    const img = imgRef.current;
+    const frame = frameRef.current;
+    if (!img || !frame) return;
+    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const current = -new DOMMatrixReadOnly(getComputedStyle(img).transform).m42;
+    const distance = Math.abs(target - current);
+    const speed = frame.clientHeight * SCREENS_PER_SECOND; // px per second
+    const duration = speed > 0 ? distance / speed : 0;
+
+    img.style.transition = 'none';
+    img.style.transform = `translate3d(0, ${-current}px, 0)`;
+    void img.offsetHeight; // commit the start position before animating
+    img.style.transition = `transform ${duration.toFixed(2)}s linear`;
+    img.style.transform = `translate3d(0, ${-target}px, 0)`;
+  }, []);
+
+  const scrollDown = () => {
+    measure();
+    glideTo(shiftRef.current);
+  };
+  const scrollUp = () => glideTo(0);
 
   const viewport = (
     <button
@@ -75,14 +114,18 @@ export default function ScrollShot({
       className={`scroll-shot group relative block w-full overflow-hidden bg-stone-100 text-left focus:outline-none ${
         isPhone ? 'aspect-[9/19.5] rounded-[1.6rem]' : 'aspect-[16/10]'
       }`}
-      style={{ '--scroll-duration': `${duration}s` } as CSSProperties}
+      onMouseEnter={scrollDown}
+      onMouseLeave={scrollUp}
+      onFocus={scrollDown}
+      onBlur={scrollUp}
     >
       <img
         src={src}
         alt={`${title} — full ${label} homepage`}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
-        onLoad={handleLoad}
+        onLoad={measure}
+        ref={imgRef}
         className="scroll-shot__img"
       />
       {!isPhone && (
