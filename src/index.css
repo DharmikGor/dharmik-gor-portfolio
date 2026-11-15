@@ -72,3 +72,46 @@
     @apply rounded-2xl border border-stone-200 bg-white/60 p-8 shadow-[0_1px_2px_rgba(20,19,15,0.04)] transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_20px_40px_-16px_rgba(20,19,15,0.12)];
   }
 }
+
+/* Hover-to-scroll full-page screenshot (ScrollShot). The image fills the frame
+   width and its visible window slides from the top to the bottom of the page. */
+@layer components {
+  .scroll-shot__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+    transition: object-position 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) {
+    .scroll-shot:hover .scroll-shot__img,
+    .scroll-shot:focus-visible .scroll-shot__img {
+      object-position: 50% 100%;
+      transition: object-position var(--scroll-duration, 8s) linear;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-shot:hover .scroll-shot__img,
+    .scroll-shot:focus-visible .scroll-shot__img {
+      object-position: 50% 0%;
+      transition: none;
+    }
+  }
+
+  .touch-hint {
+    display: none;
+  }
+
+  @media (hover: none) {
+    .hover-hint {
+      display: none;
+    }
+    .touch-hint {
+      display: inline;
+    }
+  }
+}

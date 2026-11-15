@@ -1,3 +1,4 @@
+import FeaturedBuilds from '../components/FeaturedBuilds';
 import Hero from '../components/Hero';
 import Highlights from '../components/Highlights';
 import Projects from '../components/Projects';
@@ -13,6 +14,8 @@ export default function HomePage() {
       flush>
       <Hero />
       <Highlights />
+      {/* Demo: Ali Hanif-style featured showcase with hover-to-scroll previews, shown for review above the card grid. */}
+      <FeaturedBuilds />
       <Projects limit={4} />
       <Testimonials />
       <CtaBand />

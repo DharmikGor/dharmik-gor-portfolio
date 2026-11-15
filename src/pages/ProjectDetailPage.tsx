@@ -1,5 +1,6 @@
 import BrowserFrame from '../components/BrowserFrame';
 import Reveal from '../components/Reveal';
+import ScrollShot from '../components/ScrollShot';
 import { projects, type Project } from '../data/projects';
 import { Link } from '../router';
 import CtaBand from './CtaBand';
@@ -27,7 +28,8 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
   const project = projects.find((p) => p.id === projectId);
   if (!project) return <NotFoundPage />;
 
-  const [heroShot, ...moreShots] = project.screenshots;
+  // First screenshot is replaced by the full-page hover-scroll preview; the rest stay as stills.
+  const moreShots = project.screenshots.slice(1);
   const isShopify = project.category.toLowerCase().includes('shopify');
   const related = relatedProjects(project, 3);
 
@@ -79,16 +81,9 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
             </Reveal>
           </div>
 
-          {heroShot && (
-            <Reveal delay={0.1} className="mt-14">
-              <BrowserFrame
-                src={heroShot.src}
-                alt={`${project.title} — ${heroShot.caption}`}
-                url={project.viewProjectUrl}
-                priority
-              />
-            </Reveal>
-          )}
+          <Reveal delay={0.1} className="mt-14">
+            <ScrollShot src={project.fullPage} title={project.title} url={project.viewProjectUrl} priority />
+          </Reveal>
 
           {project.results && project.results.length > 0 && (
             <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-stone-200 bg-stone-200 lg:grid-cols-4">

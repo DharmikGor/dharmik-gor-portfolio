@@ -30,6 +30,10 @@ export interface Project {
   outcome: string;
   /** Live-site screenshots: first one is the hero shot. */
   screenshots: CaseStudyShot[];
+  /** Tall full-page desktop capture used for the hover-to-scroll preview. */
+  fullPage: string;
+  /** Small 16:10 crop of the full-page capture, used in thumbnail strips. */
+  thumb: string;
   technologies: string[];
   /** Fallback cover art (SVG). */
   image: string;
@@ -69,6 +73,8 @@ export const projects: Project[] = [
       { src: '/images/projects/iceman-desktop.webp', caption: 'Homepage with "Order Ice Now" entry point' },
       { src: '/images/projects/iceman-section.webp', caption: 'Service lines: on-demand, events, industrial and film' },
     ],
+    fullPage: '/images/projects/iceman-full.webp',
+    thumb: '/images/projects/iceman-thumb.webp',
     technologies: ['Shopify', 'Onfleet', 'Shopify Bundles', 'Google Calendar Sync', 'Geo-location Order Routing'],
     image: '/images/projects/case-study-iceman.svg',
     results: ['41% sales increase', '24% increase in fulfilled orders', '12% AOV lift'],
@@ -102,6 +108,8 @@ export const projects: Project[] = [
       { src: '/images/projects/wipstitch-desktop.webp', caption: 'Homepage hero for the Stitch Club launch' },
       { src: '/images/projects/wipstitch-section.webp', caption: 'Collection page with filters and quick add-to-cart' },
     ],
+    fullPage: '/images/projects/wipstitch-full.webp',
+    thumb: '/images/projects/wipstitch-thumb.webp',
     technologies: ['Shopify Custom Theme', 'Klaviyo Email/SMS', 'Cart Abandonment Recovery', 'Lazy Loading & Code Splitting'],
     image: '/images/projects/case-study-wipstitch.svg',
     results: ['187% sales growth', '127% conversion rate increase', '24% AOV increase', '381% increase in total orders'],
@@ -136,6 +144,8 @@ export const projects: Project[] = [
       { src: '/images/projects/lira-clinical-desktop.webp', caption: 'Homepage with separate Retail and Professional account entry' },
       { src: '/images/projects/lira-clinical-section.webp', caption: '"Shop By" navigation across product lines' },
     ],
+    fullPage: '/images/projects/lira-clinical-full.webp',
+    thumb: '/images/projects/lira-clinical-thumb.webp',
     technologies: [
       'Shopify Plus',
       'NetSuite (2-way sync)',
@@ -178,6 +188,8 @@ export const projects: Project[] = [
       { src: '/images/projects/dazzle-dry-desktop.webp', caption: 'Homepage hero carousel' },
       { src: '/images/projects/dazzle-dry-section.webp', caption: 'Fan-favourites with the rebuilt system kit' },
     ],
+    fullPage: '/images/projects/dazzle-dry-full.webp',
+    thumb: '/images/projects/dazzle-dry-thumb.webp',
     technologies: ['Shopify Plus', 'Yotpo', 'Shopify Dynamic Payment Buttons', 'Custom Bundle Pricing Logic'],
     image: '/images/projects/case-study-dazzle-dry.svg',
     results: ['44% sales increase', '11% AOV lift', '31% increase in number of orders'],
@@ -211,6 +223,8 @@ export const projects: Project[] = [
       { src: '/images/projects/albee-baby-desktop.webp', caption: 'Homepage with rewards, registry and trending gear' },
       { src: '/images/projects/albee-baby-section.webp', caption: 'Mega menu for the stroller catalog' },
     ],
+    fullPage: '/images/projects/albee-baby-full.webp',
+    thumb: '/images/projects/albee-baby-thumb.webp',
     technologies: ['Shopify Custom Theme', 'Registry & Loyalty Program', 'Advanced Discounting', 'Mega Menu', 'Sliding Cart Drawer'],
     image: '/images/projects/case-study-albee-baby.svg',
     results: ['159% increase in conversion rate', '49% sales increase within a month', '97% traffic increase'],
@@ -245,6 +259,8 @@ export const projects: Project[] = [
       { src: '/images/projects/nourish-food-club-desktop.webp', caption: 'Homepage with "Join Nourish" membership entry' },
       { src: '/images/projects/nourish-food-club-section.webp', caption: 'Multi-department Food Club shops' },
     ],
+    fullPage: '/images/projects/nourish-food-club-full.webp',
+    thumb: '/images/projects/nourish-food-club-thumb.webp',
     technologies: ['Shopify Plus', 'Recharge Subscriptions', 'Dynamic Zone Pricing', 'Membership Flow', 'Accessibility Tooling'],
     image: '/images/projects/case-study-nourish-food-club.svg',
     results: ['144% sales increase within 90 days', '34% increase in sessions', '22% AOV increase', '53% increase in total orders'],
@@ -278,6 +294,8 @@ export const projects: Project[] = [
       { src: '/images/projects/intelligent-advisor-desktop.webp', caption: 'Hero: "Grow Your Business. Not Your Payroll."' },
       { src: '/images/projects/intelligent-advisor-section.webp', caption: 'Pricing tiers with the Full OS plan highlighted' },
     ],
+    fullPage: '/images/projects/intelligent-advisor-full.webp',
+    thumb: '/images/projects/intelligent-advisor-thumb.webp',
     technologies: ['WordPress', 'Divi Theme Builder', 'Custom CSS', 'Responsive Design', 'Pricing Tables', 'FAQ Accordion'],
     image: '/images/projects/case-study-intelligent-advisor.svg',
     viewProjectUrl: 'https://intelligentadvisor.com/',
