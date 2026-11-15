@@ -149,6 +149,7 @@ export const projects: Project[] = [
       { src: '/images/projects/lira-clinical-section.webp', caption: '"Shop By" navigation across product lines' },
     ],
     fullPage: '/images/projects/lira-clinical-full.webp',
+    mobilePage: '/images/projects/lira-clinical-mobile.webp',
     thumb: '/images/projects/lira-clinical-thumb.webp',
     technologies: [
       'Shopify Plus',
