@@ -36,6 +36,8 @@ export interface Project {
   thumb: string;
   /** 16:10 crop of the live homepage hero, used on the /work cards. */
   cover: string;
+  /** Top-of-page crop of the mobile capture (9:19.5), shown in a small phone frame on related cards. */
+  mobileCover?: string;
   /** Optional tall full-page mobile capture, shown in a phone frame next to the desktop preview. */
   mobilePage?: string;
   technologies: string[];
@@ -81,6 +83,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/iceman-mobile.webp',
     thumb: '/images/projects/iceman-thumb.webp',
     cover: '/images/projects/iceman-cover.webp',
+    mobileCover: '/images/projects/iceman-mobile-cover.webp',
     technologies: ['Shopify', 'Onfleet', 'Shopify Bundles', 'Google Calendar Sync', 'Geo-location Order Routing'],
     image: '/images/projects/case-study-iceman.svg',
     results: ['41% sales increase', '24% increase in fulfilled orders', '12% AOV lift'],
@@ -118,6 +121,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/wipstitch-mobile.webp',
     thumb: '/images/projects/wipstitch-thumb.webp',
     cover: '/images/projects/wipstitch-cover.webp',
+    mobileCover: '/images/projects/wipstitch-mobile-cover.webp',
     technologies: ['Shopify Custom Theme', 'Klaviyo Email/SMS', 'Cart Abandonment Recovery', 'Lazy Loading & Code Splitting'],
     image: '/images/projects/case-study-wipstitch.svg',
     results: ['187% sales growth', '127% conversion rate increase', '24% AOV increase', '381% increase in total orders'],
@@ -156,6 +160,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/lira-clinical-mobile.webp',
     thumb: '/images/projects/lira-clinical-thumb.webp',
     cover: '/images/projects/lira-clinical-cover.webp',
+    mobileCover: '/images/projects/lira-clinical-mobile-cover.webp',
     technologies: [
       'Shopify Plus',
       'NetSuite (2-way sync)',
@@ -202,6 +207,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/dazzle-dry-mobile.webp',
     thumb: '/images/projects/dazzle-dry-thumb.webp',
     cover: '/images/projects/dazzle-dry-cover.webp',
+    mobileCover: '/images/projects/dazzle-dry-mobile-cover.webp',
     technologies: ['Shopify Plus', 'Yotpo', 'Shopify Dynamic Payment Buttons', 'Custom Bundle Pricing Logic'],
     image: '/images/projects/case-study-dazzle-dry.svg',
     results: ['44% sales increase', '11% AOV lift', '31% increase in number of orders'],
@@ -239,6 +245,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/albee-baby-mobile.webp',
     thumb: '/images/projects/albee-baby-thumb.webp',
     cover: '/images/projects/albee-baby-cover.webp',
+    mobileCover: '/images/projects/albee-baby-mobile-cover.webp',
     technologies: ['Shopify Custom Theme', 'Registry & Loyalty Program', 'Advanced Discounting', 'Mega Menu', 'Sliding Cart Drawer'],
     image: '/images/projects/case-study-albee-baby.svg',
     results: ['159% increase in conversion rate', '49% sales increase within a month', '97% traffic increase'],
@@ -277,6 +284,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/nourish-food-club-mobile.webp',
     thumb: '/images/projects/nourish-food-club-thumb.webp',
     cover: '/images/projects/nourish-food-club-cover.webp',
+    mobileCover: '/images/projects/nourish-food-club-mobile-cover.webp',
     technologies: ['Shopify Plus', 'Recharge Subscriptions', 'Dynamic Zone Pricing', 'Membership Flow', 'Accessibility Tooling'],
     image: '/images/projects/case-study-nourish-food-club.svg',
     results: ['144% sales increase within 90 days', '34% increase in sessions', '22% AOV increase', '53% increase in total orders'],
@@ -314,6 +322,7 @@ export const projects: Project[] = [
     mobilePage: '/images/projects/intelligent-advisor-mobile.webp',
     thumb: '/images/projects/intelligent-advisor-thumb.webp',
     cover: '/images/projects/intelligent-advisor-cover.webp',
+    mobileCover: '/images/projects/intelligent-advisor-mobile-cover.webp',
     technologies: ['WordPress', 'Divi Theme Builder', 'Custom CSS', 'Responsive Design', 'Pricing Tables', 'FAQ Accordion'],
     image: '/images/projects/case-study-intelligent-advisor.svg',
     viewProjectUrl: 'https://intelligentadvisor.com/',

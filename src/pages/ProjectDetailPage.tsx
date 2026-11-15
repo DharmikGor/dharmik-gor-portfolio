@@ -284,7 +284,7 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
                   href={`/work/${item.id}`}
                   className="group block h-full overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_24px_48px_-20px_rgba(20,19,15,0.16)]"
                 >
-                  <div className="aspect-[16/10] overflow-hidden bg-stone-200">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
                     <img
                       src={item.cover}
                       alt={`${item.title} — live homepage`}
@@ -294,6 +294,20 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
                       height={700}
                       className="h-full w-full object-cover object-top transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
                     />
+                    {/* Mobile view in a small phone frame over the desktop shot. */}
+                    {item.mobileCover && (
+                      <span className="absolute bottom-3 right-3 block w-[22%] rounded-[0.9rem] bg-ink p-[3px] shadow-[0_16px_32px_-12px_rgba(20,19,15,0.55)] transition-transform duration-500 ease-premium group-hover:-translate-y-1">
+                        <img
+                          src={item.mobileCover}
+                          alt={`${item.title} — mobile homepage`}
+                          loading="lazy"
+                          decoding="async"
+                          width={300}
+                          height={650}
+                          className="block aspect-[9/19.5] w-full rounded-[0.75rem] object-cover object-top"
+                        />
+                      </span>
+                    )}
                   </div>
                   <div className="p-6">
                     <span className="tag-chip !py-1">{item.category}</span>
