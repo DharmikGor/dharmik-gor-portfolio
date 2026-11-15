@@ -284,30 +284,41 @@ export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps)
                   href={`/work/${item.id}`}
                   className="group block h-full overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-300 ease-premium hover:border-accent-300 hover:shadow-[0_24px_48px_-20px_rgba(20,19,15,0.16)]"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
-                    <img
-                      src={item.cover}
-                      alt={`${item.title} — live homepage`}
-                      loading="lazy"
-                      decoding="async"
-                      width={1120}
-                      height={700}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
-                    />
-                    {/* Mobile view in a small phone frame over the desktop shot. */}
-                    {item.mobileCover && (
-                      <span className="absolute bottom-3 right-3 block w-[22%] rounded-[0.9rem] bg-ink p-[3px] shadow-[0_16px_32px_-12px_rgba(20,19,15,0.55)] transition-transform duration-500 ease-premium group-hover:-translate-y-1">
-                        <img
-                          src={item.mobileCover}
-                          alt={`${item.title} — mobile homepage`}
-                          loading="lazy"
-                          decoding="async"
-                          width={300}
-                          height={650}
-                          className="block aspect-[9/19.5] w-full rounded-[0.75rem] object-cover object-top"
-                        />
-                      </span>
-                    )}
+                  {/* Static desktop + phone preview, same layout as the /work cards (no scrolling here). */}
+                  <div className="border-b border-stone-200 bg-stone-100/70 p-3.5">
+                    <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,0.32fr)] items-end gap-2.5">
+                      <div className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-[0_16px_32px_-20px_rgba(20,19,15,0.35)]">
+                        <div className="flex items-center gap-1 border-b border-stone-200 bg-stone-100 px-2.5 py-1.5" aria-hidden="true">
+                          <span className="h-1.5 w-1.5 rounded-full bg-stone-300" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-stone-300" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-stone-300" />
+                        </div>
+                        <div className="aspect-[16/10] overflow-hidden">
+                          <img
+                            src={item.cover}
+                            alt={`${item.title} — live homepage`}
+                            loading="lazy"
+                            decoding="async"
+                            width={1120}
+                            height={700}
+                            className="h-full w-full object-cover object-top transition-transform duration-500 ease-premium group-hover:scale-[1.04]"
+                          />
+                        </div>
+                      </div>
+                      {item.mobileCover && (
+                        <div className="rounded-[0.9rem] bg-ink p-[3px] shadow-[0_16px_32px_-14px_rgba(20,19,15,0.5)] transition-transform duration-500 ease-premium group-hover:-translate-y-1">
+                          <img
+                            src={item.mobileCover}
+                            alt={`${item.title} — mobile homepage`}
+                            loading="lazy"
+                            decoding="async"
+                            width={300}
+                            height={650}
+                            className="block aspect-[9/19.5] w-full rounded-[0.75rem] object-cover object-top"
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <div className="p-6">
                     <span className="tag-chip !py-1">{item.category}</span>
